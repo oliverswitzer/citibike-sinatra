@@ -17,10 +17,27 @@ module Citibike
     before do
       json = File.open("data/citibikenyc.json").read
       @data = MultiJson.load(json)
+      @data.each do |station|
+        station["lat"] = station["lat"]/1000000.to_f
+        station["lng"] = station["lng"]/1000000.to_f
+      end
     end
 
     get '/' do
+
       erb :home
+    end
+
+    get '/form' do
+
+      erb :form
+    end
+
+    post '/map' do
+      @start = params["start"]
+      @end = params["end"]
+      
+      erb :map
     end
 
   end

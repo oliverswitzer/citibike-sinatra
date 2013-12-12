@@ -6,4 +6,15 @@
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
     maxZoom: 18
   }).addTo(map);
+  L.marker(<%=@start%>).addTo(map);
+  L.marker(<%=@end%>).addTo(map);
+  L.polygon([
+    [<%=@start[1..9]%>, <%=@start[12..-2]%>],
+    [<%=@end[1..9]%>, <%=@end[12..-2]%>],
+    ]).addTo(map);
 </script>
+
+<ul>
+	<li>Start: <%=@start%></li>
+	<li>End: <%=@end%></li>
+</ul>

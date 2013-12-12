@@ -1,0 +1,20 @@
+<h1>Map my route!</h1>
+
+<form action="/map" method="POST">
+
+	<label id="start">Start:</label>
+	<select id="start" name="start">
+		<%@data.each do |citi_hash|%>
+			<option value="<%=[citi_hash["lat"], citi_hash["lng"]]%>"><%=citi_hash["name"]%></option>
+		<%end%>
+	</select>
+
+	<label id="end">End:</label>
+	<select id="end" name="end">
+		<%@data.each do |citi_hash|%>
+			<option value="<%=[citi_hash["lat"], citi_hash["lng"]]%>"><%=citi_hash["name"]%></option>
+		<%end%>
+	</select>
+	<br>
+	<button type="submit" value="submit">Submit</button>
+</form>

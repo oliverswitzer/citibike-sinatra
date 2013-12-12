@@ -1,2 +1,14 @@
 <h1>THE DATA</h1>
-<%= @data.inspect %>
+
+<%=@data.inspect%>
+
+<ul>
+<%@data.each do |citi_hash|%>
+	<li><%=citi_hash["name"]%></li>
+	<ul>
+		<li>Latitude: <%=citi_hash["lat"]%></li>
+		<li>Longitude: <%=citi_hash["lng"]%></li>
+	</ul>
+<% end %>
+</ul>
+
